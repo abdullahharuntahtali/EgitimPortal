@@ -1,0 +1,47 @@
+﻿a
+@{
+    ViewData["Title"] = "Eğitimlerim";
+}
+
+@model KullaniciEgitimBilgisi
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Eğitim Resmi</th>
+            <th>Eğitim Adı</th>
+            <th>Kategori</th>
+            <th>İçerik</th>
+            <th>Eğitmen</th>
+            <th>Eğitim</th>
+            <th>İşlem</th>
+            <!-- Diğer başlık sütunları -->
+        </tr>
+    </thead>
+    <tbody>
+        <form>
+            @foreach (var veri in @ViewBag.Egitimler)
+            {
+
+                <tr>
+                    <td><img src="@Url.Content(@veri.Resim)" width="200" height="200" alt="@veri.Resim" /></td>
+                    <td>@veri.EgitimAdi</td>
+                    <td>@veri.KategoriAdi</td>
+                    <td>@veri.IcerikAdi</td>
+                    <td>@veri.EgitmenAdi</td>
+                    <td>@veri.KontenjanSayisi</td>
+                    <td>@veri.Maliyet</td>
+                    <td>@veri.SureBilgileri</td>
+                    <td>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Satın Al</button>
+                        </div>
+                    </td>
+                    <!-- Diğer veri sütunları -->
+                </tr>
+
+            }
+        </form>
+
+    </tbody>
+</table>

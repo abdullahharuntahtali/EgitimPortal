@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Login Sayfası";
+}
+
+@model Kullanici
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="UserName" class="control-label"></label>
+        <input asp-for="UserName" class="form-control" placeholder="Kategori" value="a" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password" class="control-label"></label>
+        <input asp-for="Password" class="form-control" value="a" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+  
+            <label>
+                <input type="radio" asp-for="EgitmenMi" value="true" /> Eğitmen
+            </label>
+  
+            <label>
+                <input type="radio" asp-for="EgitmenMi" value="false" checked /> Öğrenci
+            </label>
+   
+       
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </div>
+</form>

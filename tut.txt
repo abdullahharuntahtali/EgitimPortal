@@ -1,0 +1,4 @@
+﻿~/Egitimler/Resimler/python.jpg
+git rm -r --cached .
+dotnet ef migrations add InitialCreate
+dotnet ef database update

@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\Egitimler\Pdfler\active-gramer-kitap.pdf" />
+    <Content Remove="wwwroot\Egitimler\Pdfler\arapca.pdf" />
+    <Content Remove="wwwroot\Egitimler\Resimler\arapca.jpg" />
+    <Content Remove="wwwroot\Egitimler\Resimler\ingilizce.jpg" />
+    <Content Remove="wwwroot\Egitimler\Resimler\nodejs.jpg" />
+    <Content Remove="wwwroot\Egitimler\Resimler\python.jpg" />
+    <Content Remove="wwwroot\Egitimler\Videolar\nodejs.mp4" />
+    <Content Remove="wwwroot\Egitimler\Videolar\python.mp4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Egitimler\Pdfler\active-gramer-kitap.pdf" />
+    <None Include="wwwroot\Egitimler\Pdfler\arapca.pdf" />
+    <None Include="wwwroot\Egitimler\Resimler\arapca.jpg" />
+    <None Include="wwwroot\Egitimler\Resimler\ingilizce.jpg" />
+    <None Include="wwwroot\Egitimler\Resimler\nodejs.jpg" />
+    <None Include="wwwroot\Egitimler\Resimler\python.jpg" />
+    <None Include="wwwroot\Egitimler\Videolar\nodejs.mp4" />
+    <None Include="wwwroot\Egitimler\Videolar\python.mp4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="FluentAssertions" Version="6.12.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+</Project>
