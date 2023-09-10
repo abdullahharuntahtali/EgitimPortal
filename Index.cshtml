@@ -1,0 +1,135 @@
+﻿
+@{
+    ViewData["Title"] = "Eğitim Ekleme";
+}
+
+@model Egitim
+
+<form asp-action="Create" method="post">
+    
+    <div class="form-group">
+        <label asp-for="Kategori" for="Kategori">Kategori :</label>
+        <select class="form-control" name="Kategori" id="Kategori">
+            <option value="-1">Kategori Seçiniz</option>
+           
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Icerik">İçerik :</label>
+        <select class="form-control" name="Icerik" id="Icerik">
+            <option value="-1">İçerik Seçiniz</option>
+
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Maliyet" class="control-label"></label>
+        <input asp-for="Maliyet" class="form-control" />
+        <span asp-validation-for="Maliyet" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SureBilgileri" class="control-label"></label>
+        <input asp-for="SureBilgileri" class="form-control" />
+        <span asp-validation-for="SureBilgileri" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Maliyet" class="control-label"></label>
+        <input asp-for="Maliyet" class="form-control" />
+        <span asp-validation-for="Maliyet" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </div>
+</form>
+
+@section scripts
+{
+   @* <script type="text/javascript">
+        $("#Kategori").on("change", function () {
+
+            $.ajax({
+                type: "POST",
+                url: "Egitim/IcerikFiltrele",
+                data: { "KategoriId": $("#Kategori").val() },
+                success: function (response) {
+                    var items = "";
+                    $(response.each(function () {
+                        items += '<option value=' + this.value + '>' + this.text + '</option>';
+                    })
+                        $("Icerik").html(items);
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+
+            });
+        });
+    </script>*@
+
+    @*<script>
+        $(function () {
+            $("select#Kategori").change(function () {
+                var cid = $(this).val();
+
+                $("select#Icerik").empty();
+
+                $.getJSON(`/Egitim/IcerikFiltrele?cid=${cid}`, function (data) {
+                    console.log(data);
+                    $.each(data, function (i, item) {
+                        $("select#Icerik").append(`<option value="${item.value}">${item.text}</option>`);
+                    });
+                });
+            })
+        });
+    </script>*@
+
+    <script>
+        $(document).ready(function () {
+            
+            $.ajax({
+                url: 'Egitim/GetKategori', // Verileri getirecek API veya sayfa yolunu buraya yazın
+                method: 'GET',
+                success: function (countries) {
+                    var kategoriDropDown = $('select#Kategori');
+                    var veri ="";
+                    $.each(countries, function (index, kategori) {
+                        veri += `<option value="${kategori.value}">${kategori.text}</option>`;
+                        kategoriDropDown.append(`<option value="${kategori.value}">${kategori.text}</option>`);
+                    });
+;
+                    
+                },
+                error: function () {
+                    console.error('Kategoriler getirilemedi.');
+                }
+            });
+
+           
+            $('#Kategori').change(function () {
+                var selectedKategoriId = $(this).val();
+                var icerikDropdown = $('select#Icerik');
+                icerikDropdown.empty();
+
+                if (selectedKategoriId) {
+                    $.ajax({
+                        url: 'Egitim/GetIcerik', // Verileri getirecek API veya sayfa yolunu buraya yazın
+                        method: 'GET',
+                        data: { KategoriId: selectedKategoriId },
+                        success: function (cities) {
+
+                            $.each(cities, function (index, country) {
+
+                                icerikDropdown.append(`<option value="${country.value}">${country.text}</option>`);
+                            });
+                        },
+                        error: function () {
+                            console.error('Şehirler getirilemedi.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}
